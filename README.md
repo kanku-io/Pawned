@@ -15,10 +15,6 @@ A streetwear e-commerce storefront built with React and Vite, featuring a Supaba
 - **Payments:** PayFast *(planned)*
 - **Deployment:** Vercel
 
-## Screenshots
-
-*(add homepage screenshots here)*
-
 ## Status
 
 🚧 In progress — homepage complete, product pages and checkout flow coming next.
