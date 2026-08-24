@@ -155,8 +155,59 @@ HERO SECTION
   font-family: var(--inter);
   color:var(--white);
   width:9rem;
-  
   font-size: 0.9rem;
   font-weight: 700;
 }
 
+/*
+===================================================================================================
+SHOP SECTION
+===================================================================================================
+*/
+
+.shop-section-container{
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 3rem 1.5rem;
+}
+
+.shop-women, .shop-men{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shop-women img, .shop-men img{
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.shop-women:hover img, .shop-men:hover img{
+  transform: scale(1.04);
+}
+
+.shop-women button, .shop-men button {
+  margin-top: 1.25rem;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-family: var(--inter);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15rem;
+  padding: 0.5rem;
+  width:7rem;
+  border: 1px solid var(--white-muted);
+  transition: border-color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.shop-women button:hover, .shop-men button:hover {
+  border-bottom-color: var(--white);
+  letter-spacing: 0.2rem;
+}
