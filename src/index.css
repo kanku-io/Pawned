@@ -211,3 +211,106 @@ SHOP SECTION
   border-bottom-color: var(--white);
   letter-spacing: 0.2rem;
 }
+
+/*
+===================================================================================================
+CAROUSEL
+===================================================================================================
+*/
+
+.home-body-container{
+  height:100%;
+  width:100%;
+  background-color: var(--black);
+}
+
+.carousel{
+  width:100%;
+  height:3rem;
+  display:flex;
+  overflow-x: auto;
+  background-color: var(--black);
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  align-items: center;
+}
+
+.carousel::-webkit-scrollbar{
+  display:none;
+}
+
+.group{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  gap:1rem;
+  animation: spin 15s infinite linear;
+  padding-right:0.8rem;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card{
+  text-align: center;
+  height:3rem;
+  width:10.5rem;
+  padding:1rem;
+  color:var(--white);
+  font-size: 1.2rem;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--bebas-neue);
+}
+
+@keyframes spin {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/*
+===================================================================================================
+MANIFESTO
+===================================================================================================
+*/
+
+.manifesto{
+  margin:auto;
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+  color: var(--white-muted);
+  padding:4rem 2rem;
+}
+
+.manifesto-heading{
+  font-family: var(--inter);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 0.7rem;
+  margin-bottom:3rem;
+  color: var(--white);
+}
+
+.manifesto h1{
+  font-family: var(--instrument-serif);
+  font-weight: 400;
+  margin-bottom:3rem;
+  font-size: 3rem;
+}
+
+.manifesto-text{
+  color:var(--white-muted);
+  font-family: var(--inter);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.manifesto span{
+  font-style: italic;
+  color: var(--white);
+}
+
+

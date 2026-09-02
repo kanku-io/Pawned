@@ -11,7 +11,7 @@ const App = () => {
 
     <Routes>
 
-      <Route path='/' element={<Homepage/>}></Route>
+      <Route path='/Pawned' element={<Homepage/>}></Route>
 
     </Routes>
     
