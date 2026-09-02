@@ -314,3 +314,148 @@ MANIFESTO
 }
 
 
+/*
+===================================================================================================
+FOOTER
+===================================================================================================
+*/
+
+.footer-container{
+  background-color: var(--black-light);
+  color:var(--white);
+  font-family: var(--inter);
+  padding:1rem;
+}
+
+
+
+.parent {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.div1 {
+   grid-area: 1 / 1 / 2 / 2; 
+   color: var(--white-muted);
+   padding:1rem;
+  }
+
+  .div1 h1{
+    text-transform: uppercase;
+    font-family: var(--bebas-neue);
+    letter-spacing: 1px;
+    color: var(--white);
+  }
+
+.div2 {
+   grid-area: 1 / 2 / 2 / 3;
+   padding:1rem; 
+   transform: translateY(0.4rem);
+  }
+
+  .div2 p{
+    color: var(--white-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+
+  .div2 ul{
+    list-style-type: none;
+    display:flex;
+    flex-direction: column;
+    gap:0.3rem;
+    margin-top: 1rem;
+    font-weight: 200;
+    color: var(--white);
+  }
+
+  .shop-sub li{
+    color:white
+  }
+
+.div3 {
+   grid-area: 2 / 1 / 3 / 2; 
+   padding:1rem;
+  }
+
+  .div3 p{
+    color: var(--white-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+
+   .div3 ul{
+    list-style-type: none;
+    display:flex;
+    flex-direction: column;
+    gap:0.3rem;
+    margin-top: 1rem;
+    font-weight: 200;
+    color: var(--white);
+  }
+
+.div4 {
+   grid-area: 2 / 2 / 3 / 3; 
+   padding:1rem;
+  }
+
+.div4 p{
+  color: var(--white-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.div4 input{
+  border:none;
+  background-color: var(--black-lighter);
+  outline: none;
+  height:2rem;
+  margin-bottom: 1rem;
+}
+
+.div4 input::placeholder{
+  padding:1rem;
+  color: var(--white-muted);
+  
+}
+
+.div4 button{
+  width:100%;
+  height:2rem;
+  background-color: var(--white);
+  color:var(--black);
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.lower-footer{
+  color:var(--white-muted);
+  padding:1rem;
+  margin-bottom:10rem;
+}
+
+.lower-footer p{
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.lower-footer ul{
+  display:flex;
+  list-style-type: none;
+  font-size: 0.9rem;
+  gap:0.5rem;
+}
+
+hr{
+  border: 0.5px solid var(--white-muted);
+  opacity:0.6;
+}
+
