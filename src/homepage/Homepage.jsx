@@ -2,6 +2,7 @@ import HeroSection from "./HeroSection";
 import ShopSection from "./ShopSection";
 import HomeBody from "./HomeBody";
 import Footer from "../components/Footer";
+import DesktopHomeExtra from "./DesktopHomeExtra";
 
 const Homepage = () => {
     return(
@@ -9,6 +10,7 @@ const Homepage = () => {
             <HeroSection/>
             <ShopSection/>
             <HomeBody />
+            <DesktopHomeExtra/>
             <Footer/>
         </div>
     )

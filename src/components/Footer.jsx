@@ -7,8 +7,8 @@ const Footer = () => {
              <p>Streetwear built for those who move different. Based in Johannesburg.</p>
 
               <div className="social-media-btns">
-                <p></p>
-                <p></p>
+                <p>Instagram</p>
+                <p>TikTok</p>
               </div>
 
             </div>
