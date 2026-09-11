@@ -1,6 +1,7 @@
 import { supabase } from "../lib/supabaseClient";
 import { useState } from "react";
 import { useEffect } from "react";
+import Footer from "../components/Footer";
 
 function Shop() {
     const [data, setData] = useState([]);
@@ -35,7 +36,7 @@ function Shop() {
 
 
            <div className="section-header">
-            <p className="concept">concept 001 - pawned era</p>
+            <p className="concept">pawned era</p>
             <h3>just the beginning</h3>
             <p className="origins">Origins</p>
            </div>
@@ -48,14 +49,27 @@ function Shop() {
                     <img src={product.image_url} alt="pawned-product" />
                 </div>
                 <div className="product-info">
-                    <p>{product.name}</p>
-                    <p>{new Intl.NumberFormat('en-ZA', { style: 'currency', currency: 'ZAR' }).format(product.price_cents / 100)}</p>
+                    <p className="product-name">{product.name}</p>
+                    <p className="product-category">{product.category}</p>
+                    <p className="product-price">{new Intl.NumberFormat('en-ZA', { style: 'currency', currency: 'ZAR' }).format(product.price_cents / 100)}</p>
                 </div>
             </div>
            ))}
            </div>
+
+           <hr/>
+
+           <div className="pawned-checkmate">
+            <img src="https://yaqbejublndhrojxyukv.supabase.co/storage/v1/object/public/images/pawned-checkmate.jpeg" alt="pawned-checkmate" />
+            <p className="pawned-checkmate-text">pawned: checkmate</p>
+            <h3>coming soon</h3>
+           </div>
+
+           <Footer/>
            
         </div>
+
+        
     )
 }
 
