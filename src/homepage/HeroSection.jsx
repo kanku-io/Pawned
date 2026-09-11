@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { supabase } from "../lib/supabaseClient";
 
 const HeroSection = () => {
@@ -41,7 +42,10 @@ const HeroSection = () => {
        </div>
 
        <div className="hero-buttons">
-        <button>SHOP NOW</button>
+        <Link to="/shop">
+        <button>Shop Now</button>
+        </Link>
+        
         <button>A CLOSER LOOK</button>
        </div>
         </div>
