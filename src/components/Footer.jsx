@@ -7,8 +7,14 @@ const Footer = () => {
              <p>Streetwear built for those who move different. Based in Johannesburg.</p>
 
               <div className="social-media-btns">
+                <a href="https://www.instagram.com/pawnedera/" target="_blank">
                 <p>Instagram</p>
+                </a>
+                
+                <a href="https://www.tiktok.com/@pawnedera" target="_blank">
                 <p>TikTok</p>
+                </a>
+                
               </div>
 
             </div>

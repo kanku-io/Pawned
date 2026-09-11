@@ -3,7 +3,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from './components/NavBar'
 import Homepage from './homepage/Homepage'
-import Shop from './ShopNow.jsx/Shop';
+import Shop from './shopscreen/Shop';
 
 const App = () => {
   return(

@@ -41,8 +41,8 @@ NAV BAR
 
 .nav-bar-container{
   position: fixed;
-  display:flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   color: var(--white);
   font-family: var(--bebas-neue);
@@ -58,18 +58,19 @@ NAV BAR
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(10px);      
 }
-  
-
 
 .nav-icons{
   display:flex;
   gap:0.5rem;
   align-items: center;
+  justify-self: end;
 }
 
-.nav-bar-container p{
-  letter-spacing: 4px;
-  font-size: 1.5rem;
+.pawned-link{
+  text-decoration: none;
+  color:var(--white);
+  justify-self: center;
+  font-size: 1.6rem;
 }
 
 /*
@@ -479,6 +480,11 @@ hr{
 
 .product-container{
     display:none;
+  }
+
+  .social-media-btns a{
+    color:var(--white);
+    text-decoration: none;
   }
 
 /*
