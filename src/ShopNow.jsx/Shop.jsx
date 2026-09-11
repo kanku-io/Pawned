@@ -33,6 +33,7 @@ function Shop() {
     return(
         <div className="shopping-section">
 
+
            <div className="section-header">
             <p className="concept">concept 001 - pawned era</p>
             <h3>just the beginning</h3>
