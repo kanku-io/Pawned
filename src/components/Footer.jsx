@@ -55,11 +55,7 @@ const Footer = () => {
          
          <div className="lower-footer">
             <p>© 2026 PAWNED. All rights Reserved.</p>
-            <ul>
-                <li>Privacy Policy</li>
-                <li>Terms of Service</li>
-                <li>Refund Policy</li>
-            </ul>
+            
          </div>
         
         </div>
