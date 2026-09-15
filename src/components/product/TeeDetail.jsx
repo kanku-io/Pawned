@@ -1,6 +1,7 @@
 import { supabase } from "../../lib/supabaseClient";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Footer from "../Footer";
 
 const TeeDetail = () => {
     const { slug } = useParams();
@@ -62,6 +63,8 @@ const TeeDetail = () => {
                     <button className="add-to-cart-btn">Add to Cart</button>
                 </div>
             </div>
+
+            <Footer/>
         </div>
     );
 };
