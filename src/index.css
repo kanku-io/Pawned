@@ -974,6 +974,11 @@ SHOP
   width: 100%;
 }
 
+a.product-card{
+  color: inherit;
+  text-decoration: none;
+}
+
 .product-card-img {
   width: 100%;
   aspect-ratio: 4/5;
@@ -1358,5 +1363,225 @@ HAMBURGER
   .pw-nav-scrim,
   .pw-nav-panel {
     transition: none;
+  }
+}
+
+/*
+===================================================================================================
+PRODUCT DETAIL (TEE + HAT)
+===================================================================================================
+*/
+
+.tee-detail-container,
+.hat-detail-container{
+  color: var(--white);
+  margin-top: 5rem;
+  font-family: var(--inter);
+  width: 100%;
+}
+
+.tee-detail-status,
+.hat-detail-status{
+  color: var(--white-muted);
+  margin-top: 8rem;
+  text-align: center;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.tee-detail-main,
+.hat-detail-main{
+  display: flex;
+  flex-direction: column;
+}
+
+/* tee gallery — main image + one landscape image below */
+
+.tee-detail-gallery{
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.tee-detail-img-main{
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.tee-detail-img-main img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tee-detail-img-secondary{
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.tee-detail-img-secondary img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* hat single image */
+
+.hat-detail-img{
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.hat-detail-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* shared info block */
+
+.tee-detail-info,
+.hat-detail-info{
+  padding: 1.5rem 1rem 3rem;
+}
+
+.tee-detail-category,
+.hat-detail-category{
+  color: var(--white-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.tee-detail-name,
+.hat-detail-name{
+  font-family: var(--bebas-neue);
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 0.05rem;
+  margin-top: 0.4rem;
+}
+
+.tee-detail-price,
+.hat-detail-price{
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 0.6rem;
+}
+
+.tee-detail-info hr,
+.hat-detail-info hr{
+  border: none;
+  height: 1px;
+  width: 100%;
+  margin: 1.5rem 0;
+  background: linear-gradient(
+    to right,
+    var(--white-muted) 0%,
+    var(--white-muted) 60%,
+    transparent 100%
+  );
+}
+
+.tee-detail-description,
+.hat-detail-description{
+  color: var(--white-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.add-to-cart-btn{
+  background: transparent;
+  border: 1px solid var(--white);
+  color: var(--white);
+  font-family: var(--inter);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.9rem;
+  width: 100%;
+  margin-top: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.add-to-cart-btn:hover{
+  background-color: var(--white);
+  color: var(--black);
+}
+
+/* link styling for product cards in Shop.jsx */
+
+a.product-card{
+  color: inherit;
+  text-decoration: none;
+}
+
+/*
+===================================================================================================
+PRODUCT DETAIL - DESKTOP ONLY
+===================================================================================================
+*/
+
+@media (min-width: 1024px) {
+  .tee-detail-main,
+  .hat-detail-main{
+    flex-direction: row;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 3rem;
+    padding: 0 2rem;
+  }
+
+  .tee-detail-gallery,
+  .hat-detail-img{
+    flex: 1;
+  }
+
+  .tee-detail-img-main,
+  .hat-detail-img{
+    aspect-ratio: 4/5;
+  }
+
+  .tee-detail-img-secondary{
+    aspect-ratio: 16/9;
+  }
+
+  .tee-detail-info,
+  .hat-detail-info{
+    flex: 1;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .tee-detail-name,
+  .hat-detail-name{
+    font-size: 2.6rem;
+  }
+
+  .tee-detail-price,
+  .hat-detail-price{
+    font-size: 1.3rem;
+  }
+
+  .tee-detail-description,
+  .hat-detail-description{
+    font-size: 1rem;
+    max-width: 480px;
+  }
+
+  .add-to-cart-btn{
+    width: auto;
+    padding: 0.9rem 3rem;
   }
 }

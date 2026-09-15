@@ -2,6 +2,7 @@ import { supabase } from "../lib/supabaseClient";
 import { useState } from "react";
 import { useEffect } from "react";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 function Shop() {
     const [data, setData] = useState([]);
@@ -31,6 +32,12 @@ function Shop() {
         fetchData()
     }, [])
 
+
+    const categoryToPath = {
+    'Tees': 'tees',
+    'Accessories': 'hats',
+};
+
     return(
         <div className="shopping-section">
 
@@ -45,14 +52,16 @@ function Shop() {
            <div className="product-cards-001">
             {data.map((product) => (
             <div key={product.id} className="product-card">
-                <div className="product-card-img">
-                    <img src={product.image_url} alt="pawned-product" />
-                </div>
-                <div className="product-info">
-                    <p className="product-name">{product.name}</p>
-                    <p className="product-category">{product.category}</p>
-                    <p className="product-price">{new Intl.NumberFormat('en-ZA', { style: 'currency', currency: 'ZAR' }).format(product.price_cents / 100)}</p>
-                </div>
+               <Link to={`/shop/${categoryToPath[product.category] ?? 'tees'}/${product.slug}`} className="product-card">
+    <div className="product-card-img">
+        <img src={product.image_url} alt="pawned-product" />
+    </div>
+    <div className="product-info">
+        <p className="product-name">{product.name}</p>
+        <p className="product-category">{product.category}</p>
+        <p className="product-price">{new Intl.NumberFormat('en-ZA', { style: 'currency', currency: 'ZAR' }).format(product.price_cents / 100)}</p>
+    </div>
+</Link>
             </div>
            ))}
            </div>
