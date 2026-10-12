@@ -1,85 +1,99 @@
+import { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { supabase } from "../lib/supabaseClient";
-import { useState } from "react";
-import { useEffect } from "react";
+import { formatZAR } from "../lib/format";
+import { productPath } from "../lib/routes";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
+
+const FILTERS = ["All", "Tees", "Accessories"];
 
 function Shop() {
-    const [data, setData] = useState([]);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const {data, error} = await supabase
-            .from('products')
-            .select('*')
+  const active = FILTERS.includes(searchParams.get("category"))
+    ? searchParams.get("category")
+    : "All";
 
-            if (error) {
-                setError('Could not fetch data')
-                console.log(error)
-                setData(null)
-                setLoading(false)
-            }
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data, error } = await supabase.from("products").select("*");
 
-            if (data){
-                setLoading(false)
-                setData(data)
-                setError(null)  
-            }
-        }
+      if (error) {
+        console.log(error);
+        setError("Could not fetch products");
+        setData([]);
+      } else {
+        setError(null);
+        setData(data ?? []);
+      }
+      setLoading(false);
+    };
 
-        fetchData()
-    }, [])
+    fetchData();
+  }, []);
 
+  const visible = active === "All" ? data : data.filter((p) => p.category === active);
 
-    const categoryToPath = {
-    'Tees': 'tees',
-    'Accessories': 'hats',
-};
+  return (
+    <div className="shopping-section">
+      <div className="section-header">
+        <p className="concept">pawned era</p>
+        <h3>just the beginning</h3>
+        <p className="origins">Origins</p>
 
-    return(
-        <div className="shopping-section">
-
-
-           <div className="section-header">
-            <p className="concept">pawned era</p>
-            <h3>just the beginning</h3>
-            <p className="origins">Origins</p>
-           </div>
-
-
-           <div className="product-cards-001">
-            {data.map((product) => (
-            <div key={product.id} className="product-card">
-               <Link to={`/shop/${categoryToPath[product.category] ?? 'tees'}/${product.slug}`} className="product-card">
-    <div className="product-card-img">
-        <img src={product.image_url} alt="pawned-product" />
-    </div>
-    <div className="product-info">
-        <p className="product-name">{product.name}</p>
-        <p className="product-category">{product.category}</p>
-        <p className="product-price">{new Intl.NumberFormat('en-ZA', { style: 'currency', currency: 'ZAR' }).format(product.price_cents / 100)}</p>
-    </div>
-</Link>
-            </div>
-           ))}
-           </div>
-
-           <hr/>
-
-           <div className="pawned-checkmate">
-            <img src="https://yaqbejublndhrojxyukv.supabase.co/storage/v1/object/public/images/pawned-checkmate.jpeg" alt="pawned-checkmate" />
-            <p className="pawned-checkmate-text">pawned: checkmate</p>
-            <h3>coming soon</h3>
-           </div>
-
-           <Footer/>
-           
+        <div className="shop-filters" role="group" aria-label="Filter products">
+          {FILTERS.map((f) => (
+            <button
+              key={f}
+              type="button"
+              className={`shop-filter ${active === f ? "is-active" : ""}`}
+              aria-pressed={active === f}
+              onClick={() => setSearchParams(f === "All" ? {} : { category: f })}
+            >
+              {f}
+            </button>
+          ))}
         </div>
+      </div>
 
-        
-    )
+      {loading && <p className="shop-status">Loading...</p>}
+      {error && <p className="shop-status">{error}</p>}
+      {!loading && !error && visible.length === 0 && (
+        <p className="shop-status">Nothing here yet.</p>
+      )}
+
+      <div className="product-cards-001">
+        {visible.map((product) => (
+          <Link key={product.id} to={productPath(product)} className="product-card">
+            <div className="product-card-img">
+              <img src={product.image_url} alt={product.name} />
+            </div>
+            <div className="product-info">
+              <p className="product-name">{product.name}</p>
+              <p className="product-category">{product.category}</p>
+              <p className="product-price">{formatZAR(product.price_cents)}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      <hr />
+
+      <div className="pawned-checkmate" id="checkmate">
+        <img
+          src="https://yaqbejublndhrojxyukv.supabase.co/storage/v1/object/public/images/pawned-checkmate.jpeg"
+          alt="pawned-checkmate"
+        />
+        <p className="pawned-checkmate-text">pawned: checkmate</p>
+        <h3>coming soon</h3>
+      </div>
+
+      <Footer />
+    </div>
+  );
 }
 
 export default Shop;
